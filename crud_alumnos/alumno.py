@@ -6,4 +6,4 @@ class Alumno:
   telefono = ""
 
   def obtener_formato_columna(self):
-    print(self.cuenta + "\t" + self.nombre + "\t" + self.correo)
+    print(self.cuenta + "\t" + self.nombre + "\t" + self.telefono + "\t" + self.genero + "\t" + self.correo)

@@ -1,7 +1,7 @@
 import sys
-from userinterface import show_separator, show_menu, show_registros
+from userinterface import show_separator, show_menu, show_registros_class, getAlumnoData, showAlumnoData
 from alumno import Alumno
-from alumnosdao import createTable, getAll
+from alumnosdao import createTable, getAllAlumnos, save_new, getByCuenta, update, delete
 
 show_separator()
 print("CRUD de Alumnos V 0.0.1")
@@ -17,12 +17,22 @@ while True:
   if opcion == "Q":
     break
   elif opcion == "M":
-    show_registros(getAll())
-  elif opcion == "T":
-    mi_alumno = Alumno()
-    mi_alumno.cuenta = "12345678"
-    mi_alumno.correo = "alguncorreo@corre.com"
-    mi_alumno.nombre = "Fulanito de Tal y Porcuerra"
-    mi_alumno.genero = "Masculino"
-    mi_alumno.telefono = "00000000"
-    mi_alumno.obtener_formato_columna()
+    show_registros_class(getAllAlumnos())
+  elif opcion == "C":
+    alumno = getAlumnoData(Alumno(), True, teclado)
+    save_new(alumno)
+  elif opcion == "A":
+    print("Ingrese la Cuenta a Actualizar:")
+    cuenta = teclado.readline().rstrip().lstrip()
+    alumno = getByCuenta(cuenta)
+    showAlumnoData(alumno)
+    alumno = getAlumnoData(alumno, False, teclado)
+    update(alumno)
+  elif opcion == "B":
+    print("Ingrese la Cuenta a Eliminar:")
+    cuenta = teclado.readline().rstrip().lstrip()
+    alumno = getByCuenta(cuenta)
+    showAlumnoData(alumno)
+    eliminar = teclado.readline().lstrip().rstrip().upper()
+    if eliminar == 'S':
+      delete(alumno)
