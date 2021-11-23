@@ -33,6 +33,7 @@ while True:
     cuenta = teclado.readline().rstrip().lstrip()
     alumno = getByCuenta(cuenta)
     showAlumnoData(alumno)
+    print("Eliminar este registro (S, N): ")
     eliminar = teclado.readline().lstrip().rstrip().upper()
     if eliminar == 'S':
       delete(alumno)

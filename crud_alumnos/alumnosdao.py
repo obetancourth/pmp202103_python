@@ -19,7 +19,7 @@ def getAll():
 def getByCuenta(cuenta):
   global cursor
   global conn
-  cursor.execute("SELECT * from ALUMNOS where cuenta=?;", (cuenta))
+  cursor.execute("SELECT * from ALUMNOS where cuenta=?;", (cuenta,))
   row = cursor.fetchone()
   alumno = Alumno()
   alumno.cuenta = row[0]
@@ -27,6 +27,7 @@ def getByCuenta(cuenta):
   alumno.telefono = row[2]
   alumno.genero = row[3]
   alumno.correo = row[4]
+  return alumno
 
 def getAllAlumnos():
   rows = getAll()
@@ -68,6 +69,6 @@ def delete(alumno):
   deleteSql = "DELETE FROM ALUMNOS where cuenta = ?;"
   cursor.execute(
       deleteSql,
-      (alumno.cuenta)
+      (alumno.cuenta, )
   )
   conn.commit()
