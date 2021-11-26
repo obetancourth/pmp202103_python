@@ -1,0 +1,28 @@
+Formatos de Representar Data
+---------------------------------------------
+Objetivo -- Intercambio de datos entre distintos sistemas.
+JSON JavaScript Object Notation
+Una forma de representar informacion y trasferirla por la red
+
+XML  eXtensible Markup Language
+
+CSV coma seperated values
+
+Transferimos Por La red
+---------------------------------------------
+http
+https
+ftp
+ssh
+telnet
+sftp
+smnp
+
+Proceso para obtener Data
+---------------------------------------------
+url parametros headers --> endpoint
+
+http(s):
+  methods: GET, POST, PUT, DELETE
+
+cliente (request) --> end point --> response (JSON) --> Parserar JSON -- Dictionario o Lista
